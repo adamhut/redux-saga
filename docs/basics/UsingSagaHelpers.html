@@ -1,0 +1,657 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>使用 Saga Helpers | redux-saga</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.5.2">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../../docs/basics/DeclarativeEffects.html" />
+    
+    
+    <link rel="prev" href="../../docs/basics/index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="2.1" data-chapter-title="使用 Saga Helpers" data-filepath="docs/basics/UsingSagaHelpers.md" data-basepath="../.." data-revision="Wed Aug 17 2016 07:33:14 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Read Me
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="docs/introduction/index.html">
+            
+                
+                    <a href="../../docs/introduction/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        介紹
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="docs/introduction/BeginnerTutorial.html">
+            
+                
+                    <a href="../../docs/introduction/BeginnerTutorial.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        新手教學
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="docs/introduction/SagaBackground.html">
+            
+                
+                    <a href="../../docs/introduction/SagaBackground.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Saga 的背景
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="docs/basics/index.html">
+            
+                
+                    <a href="../../docs/basics/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        基礎概念
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.1" data-path="docs/basics/UsingSagaHelpers.html">
+            
+                
+                    <a href="../../docs/basics/UsingSagaHelpers.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        使用 Saga Helpers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="docs/basics/DeclarativeEffects.html">
+            
+                
+                    <a href="../../docs/basics/DeclarativeEffects.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        宣告 Effect
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="docs/basics/DispatchingActions.html">
+            
+                
+                    <a href="../../docs/basics/DispatchingActions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Dispatch action
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="docs/basics/ErrorHandling.html">
+            
+                
+                    <a href="../../docs/basics/ErrorHandling.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        錯誤處理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="docs/basics/Effect.html">
+            
+                
+                    <a href="../../docs/basics/Effect.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        一個常見的抽象概念：Effect
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="docs/advanced/index.html">
+            
+                
+                    <a href="../../docs/advanced/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        進階概念
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="docs/advanced/FutureActions.html">
+            
+                
+                    <a href="../../docs/advanced/FutureActions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Pull 未來的 action
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="docs/advanced/NonBlockingCalls.html">
+            
+                
+                    <a href="../../docs/advanced/NonBlockingCalls.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        非阻塞式的呼叫
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="docs/advanced/RunningTasksInParallel.html">
+            
+                
+                    <a href="../../docs/advanced/RunningTasksInParallel.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        同時執行多個任務
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="docs/advanced/RacingEffects.html">
+            
+                
+                    <a href="../../docs/advanced/RacingEffects.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        在多個 Effect 之間啟動一個 race
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="docs/advanced/SequencingSagas.html">
+            
+                
+                    <a href="../../docs/advanced/SequencingSagas.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        使用 yield* 對 Saga 做排序
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="docs/advanced/ComposingSagas.html">
+            
+                
+                    <a href="../../docs/advanced/ComposingSagas.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        組合 Saga
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="docs/advanced/TaskCancellation.html">
+            
+                
+                    <a href="../../docs/advanced/TaskCancellation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        取消 Task
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="docs/advanced/ForkModel.html">
+            
+                
+                    <a href="../../docs/advanced/ForkModel.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        redux-saga 的 fork 模型
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="docs/advanced/Concurrency.html">
+            
+                
+                    <a href="../../docs/advanced/Concurrency.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        常見的併發模式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="docs/advanced/Testing.html">
+            
+                
+                    <a href="../../docs/advanced/Testing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        Saga 測試的範例
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="docs/advanced/UsingRunSaga.html">
+            
+                
+                    <a href="../../docs/advanced/UsingRunSaga.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.11.</b>
+                        
+                        連結 Saga 到外部的輸入和輸出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="docs/advanced/Channels.html">
+            
+                
+                    <a href="../../docs/advanced/Channels.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.12.</b>
+                        
+                        使用 Channel
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="docs/recipes/index.html">
+            
+                
+                    <a href="../../docs/recipes/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Recipes
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="docs/ExternalResources.html">
+            
+                
+                    <a href="../../docs/ExternalResources.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        外部資源
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="docs/Troubleshooting.html">
+            
+                
+                    <a href="../../docs/Troubleshooting.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        疑難排解
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="docs/Glossary.html">
+            
+                
+                    <a href="../../docs/Glossary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        術語表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="docs/api/index.html">
+            
+                
+                    <a href="../../docs/api/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        API 參考
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../" >redux-saga</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x4F7F;&#x7528;-saga-helpers">&#x4F7F;&#x7528; Saga Helpers</h1>
+<p><code>redux-saga</code> &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B; helper function&#xFF0C;&#x7576;&#x6307;&#x5B9A;&#x7684; action &#x88AB; dispatch &#x5230; Store &#x6642;&#x6703;&#x7522;&#x751F; task&#x3002;</p>
+<p>helper function &#x5EFA;&#x7ACB;&#x5728;&#x4F4E;&#x968E;&#x7684; API &#x4E0A;&#x3002;&#x6211;&#x5011;&#x5728;&#x9032;&#x968E;&#x90E8;&#x4EFD;&#x6703;&#x770B;&#x5230;&#x9019;&#x4E9B; function &#x53EF;&#x4EE5;&#x88AB;&#x5BE6;&#x73FE;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x500B; function <code>takeEvery</code> &#x662F;&#x6211;&#x5011;&#x5F88;&#x719F;&#x6089;&#x7684;&#xFF0C;&#x5B83;&#x63D0;&#x4F9B;&#x985E;&#x4F3C;&#x65BC; <code>redux-thunk</code> &#x7684;&#x884C;&#x70BA;&#x3002;</p>
+<p>&#x8B93;&#x6211;&#x5011;&#x8AAA;&#x660E;&#x4E00;&#x4E9B;&#x5E38;&#x898B;&#x7684; AJAX &#x7BC4;&#x4F8B;&#x3002;&#x5728;&#x6BCF;&#x6B21;&#x6309;&#x4E0B; Fetch &#x6309;&#x9215;&#x6642;&#xFF0C;&#x6211;&#x5011; dispatch &#x4E00;&#x500B; <code>FETCH_REQUESTED</code> &#x7684; aciton&#x3002;&#x900F;&#x904E;&#x555F;&#x52D5;&#x9019;&#x500B; task&#xFF0C;&#x5C07;&#x5F9E;&#x4F3A;&#x670D;&#x5668;&#x53D6;&#x5F97;&#x4E00;&#x4E9B;&#x8CC7;&#x6599;&#x8655;&#x7406;&#x9019;&#x500B; action&#x3002;</p>
+<p>&#x9996;&#x5148;&#x6211;&#x5011;&#x5EFA;&#x7ACB; task &#x5C07;&#x57F7;&#x884C;&#x975E;&#x540C;&#x6B65;&#x7684; action&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> call<span class="token punctuation">,</span> put <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fetchData</span><span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">yield</span> <span class="token function">call</span><span class="token punctuation">(</span>Api<span class="token punctuation">.</span>fetchUser<span class="token punctuation">,</span> action<span class="token punctuation">.</span>payload<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+      <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token punctuation">{</span>type<span class="token punctuation">:</span> <span class="token string">&quot;FETCH_SUCCEEDED&quot;</span><span class="token punctuation">,</span> data<span class="token punctuation">}</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">yield</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token punctuation">{</span>type<span class="token punctuation">:</span> <span class="token string">&quot;FETCH_FAILED&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">}</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x70BA;&#x4E86;&#x6BCF;&#x6B21;&#x5728;&#x5F97;&#x5230; <code>FETCH_REQUESTED</code> action &#x6642;&#xFF0C;&#x555F;&#x52D5;&#x4E0A;&#x9762;&#x7684; task&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> takeEvery <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga&apos;</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchFetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token function">takeEvery</span><span class="token punctuation">(</span><span class="token string">&apos;FETCH_REQUESTED&apos;</span><span class="token punctuation">,</span> fetchData<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x5728;&#x4EE5;&#x4E0A;&#x7684;&#x7BC4;&#x4F8B;&#x4E2D;&#xFF0C;<code>takeEvery</code> &#x5141;&#x8A31;&#x591A;&#x500B; <code>fetchData</code> &#x5BE6;&#x4F8B;&#x88AB;&#x540C;&#x6642;&#x555F;&#x52D5;&#x3002;&#x5728;&#x7279;&#x5B9A;&#x7684;&#x6642;&#x9593;&#xFF0C;&#x6211;&#x5011;&#x555F;&#x52D5;&#x4E00;&#x500B;&#x65B0;&#x7684; <code>fetchData</code> task&#xFF0C;&#x5118;&#x7BA1;&#x524D;&#x9762;&#x9084;&#x6709;&#x4E00;&#x500B;&#x6216;&#x591A;&#x500B; <code>fetchData</code> task &#x9084;&#x6C92;&#x7D50;&#x675F;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6211;&#x5011;&#x53EA;&#x60F3;&#x8981;&#x53D6;&#x5F97;&#x6700;&#x65B0;&#x88AB;&#x89F8;&#x767C;&#x8ACB;&#x6C42;&#x7684; response&#xFF08;&#x4F8B;&#x5982;&#xFF1A;&#x986F;&#x793A;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684;&#x8CC7;&#x6599;&#xFF09;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>takeLatest</code> helper&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> takeLatest <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga&apos;</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchFetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token function">takeLatest</span><span class="token punctuation">(</span><span class="token string">&apos;FETCH_REQUESTED&apos;</span><span class="token punctuation">,</span> fetchData<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x8207; <code>takeEvery</code> &#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;<code>takeLatest</code> &#x5728;&#x4EFB;&#x4F55;&#x6642;&#x5019;&#x53EA;&#x5141;&#x8A31;&#x4E00;&#x500B; <code>fetchData</code> task &#x57F7;&#x884C;&#xFF0C;&#x5B83;&#x5C07;&#x555F;&#x52D5;&#x6700;&#x65B0;&#x7684; task&#x3002;&#x5982;&#x679C;&#x5148;&#x524D;&#x63D0;&#x4F9B;&#x7684; task &#x9084;&#x5728;&#x57F7;&#x884C;&#xFF0C;&#x7576;&#x5176;&#x4ED6;&#x7684; <code>fetchData</code> task &#x88AB;&#x555F;&#x52D5;&#xFF0C;&#x5148;&#x524D;&#x7684; task &#x6703;&#x81EA;&#x52D5;&#x88AB;&#x53D6;&#x6D88;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x6709;&#x591A;&#x500B; Saga &#x89C0;&#x5BDF;&#x4E0D;&#x540C;&#x7684; action&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5EFA;&#x7ACB;&#x591A;&#x500B; watcher &#x548C; <code>fork</code>&#xFF08;&#x6211;&#x5011;&#x4E4B;&#x5F8C;&#x5C07;&#x8A0E;&#x8AD6;&#x95DC;&#x65BC; <code>fork</code>&#xFF0C;&#x73FE;&#x5728;&#x5B83;&#x662F;&#x4E00;&#x500B; Effect &#x5141;&#x8A31;&#x6211;&#x5011;&#x5728;&#x80CC;&#x666F;&#x555F;&#x52D5;&#x591A;&#x500B; Saga&#xFF09;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> takeEvery <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> fork <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+
+<span class="token comment" spellcheck="true">// FETCH_USERS</span>
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fetchUsers</span><span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchFetchUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token function">takeEvery</span><span class="token punctuation">(</span><span class="token string">&apos;FETCH_USERS&apos;</span><span class="token punctuation">,</span> fetchUsers<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// CREATE_USER</span>
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">createUser</span><span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">watchCreateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span><span class="token operator">*</span> <span class="token function">takeEvery</span><span class="token punctuation">(</span><span class="token string">&apos;CREATE_USER&apos;</span><span class="token punctuation">,</span> createUser<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// &#x4F7F;&#x7528;&#x8005; fork &#x5169;&#x500B;&#x89C0;&#x5BDF;&#x8005;&#x4E14;&#x4F75;&#x884C;&#x555F;&#x52D5;&#x3002;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">rootSaga</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span> <span class="token function">fork</span><span class="token punctuation">(</span>watchFetchUsers<span class="token punctuation">)</span>
+  <span class="token keyword">yield</span> <span class="token function">fork</span><span class="token punctuation">(</span>watchCreateUser<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x53E6;&#x5916;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9019;&#x500B;&#x7C21;&#x77ED;&#x7684;&#x578B;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> takeEvery <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> fork <span class="token punctuation">}</span> from <span class="token string">&apos;redux-saga/effects&apos;</span>
+
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">fetchUsers</span><span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+<span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">createUser</span><span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// &#x5728;&#x80CC;&#x666F;&#x5C07;&#x555F;&#x52D5; takeEvery &#x4E26;&#x63D0;&#x4F9B;&#x5B83;&#x7684;&#x5B50;&#x53C3;&#x6578;&#x3002;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token function">rootSaga</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">yield</span> <span class="token function">fork</span><span class="token punctuation">(</span>takeEvery<span class="token punctuation">,</span> <span class="token string">&apos;FETCH_USERS&apos;</span><span class="token punctuation">,</span> fetchUsers<span class="token punctuation">)</span>
+  <span class="token keyword">yield</span> <span class="token function">fork</span><span class="token punctuation">(</span>takeEvery<span class="token punctuation">,</span> <span class="token string">&apos;CREATE_USER&apos;</span><span class="token punctuation">,</span> createUser<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../docs/basics/index.html" class="navigation navigation-prev " aria-label="Previous page: 基礎概念"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../docs/basics/DeclarativeEffects.html" class="navigation navigation-next " aria-label="Next page: 宣告 Effect"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"github":{"url":"https://github.com/yelouafi/redux-saga/"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"prism":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
